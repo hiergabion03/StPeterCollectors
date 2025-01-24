@@ -12,16 +12,7 @@ namespace StPeterCollectors
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (rbtnMale.IsChecked == true)
-            {
-                MessageBox.Show($"Hello {rbtnMale.Content}");
-            }
-            else { 
-                MessageBox.Show( $" Hello {rbtnFemale.Content}" );
-            }
-        }
+     
         
     }
 }
