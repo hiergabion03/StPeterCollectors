@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StPeterCollectors
 {
@@ -12,7 +13,10 @@ namespace StPeterCollectors
             InitializeComponent();
         }
 
-     
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            Console.WriteLine("Test");
+        }
     }
 }

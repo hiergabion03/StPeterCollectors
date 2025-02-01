@@ -24,7 +24,8 @@
 
 
         </Grid.ColumnDefinitions>
-   
+        <Button Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="253,432,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+
 
 
     </Grid>
