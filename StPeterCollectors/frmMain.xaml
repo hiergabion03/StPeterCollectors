@@ -8,25 +8,23 @@
         mc:Ignorable="d"
         Title="St. Peter Collectors Data Manager" Height="768" Width="1024" Icon="/stPeterLogo.png" FontFamily="Tahoma">
     <Grid>
-        <Grid.Effect>
-            <DropShadowEffect/>
-        </Grid.Effect>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+        <StackPanel Margin="20">
+            <TextBlock Text="Select Excel File:" FontWeight="Bold"/>
+            <TextBox Text="{Binding FilePath}" IsReadOnly="True" Width="350" />
+            <Button Name="btn_browse" Content="Browse" Command="{Binding SelectFileCommand}" Width="100" Click="Button_Click_1" />
 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="121*"/>
-            <ColumnDefinition Width="79*"/>
+            <Button Name="btn_upload_data" Content="Upload Data" Command="{Binding UploadCommand}" Margin="10" Click="btn_upload_data_Click" />
 
-
-        </Grid.ColumnDefinitions>
-        <Button Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="253,432,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-
-
-
+            <ListBox ItemsSource="{Binding Records}" Height="150">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding contract_no}" Width="100"/>
+                            <TextBlock Text="{Binding plan_holder}" Width="100"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
     </Grid>
 </Window>

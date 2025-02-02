@@ -18,5 +18,10 @@ namespace StPeterCollectors
 
             Console.WriteLine("Test");
         }
+
+        private void btn_upload_data_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

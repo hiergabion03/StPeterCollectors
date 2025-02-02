@@ -16,7 +16,6 @@
         public int aging { get; set; }
         public decimal balance { get; set; }
         public string  tax { get; set; }
-
         public string ins { get; set; }
         public int? or_no { get; set; }
         public DateTime? or_date { get; set; }
