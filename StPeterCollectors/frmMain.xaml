@@ -3,17 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StPeterCollectors"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="StPeterCollectors" x:Class="StPeterCollectors.MainWindow"
+        xmlns:local="clr-namespace:StPeterCollectors.Converters"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:StPeterCollectors.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:UploadDataViewModel}" x:Name="StPeterCollectors" x:Class="StPeterCollectors.MainWindow"
         mc:Ignorable="d"
         Title="St. Peter Collectors Data Manager" Height="768" Width="1024" Icon="/stPeterLogo.png" FontFamily="Tahoma">
+    <Window.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="16"/>
+
+        </Style>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="3"/>
+
+
+        </Style>
+        <local:NullOrEmptyConverter x:Key="NullOrEmptyConverter"/>
+    </Window.Resources>
     <Grid>
-        <StackPanel Margin="20">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- Sidebar Width -->
+            <ColumnDefinition Width="153*"/>
+            <ColumnDefinition Width="53*"/>
+            <!-- Main Content -->
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="#FFB1ABAB" BorderThickness="0,0,2,0">
+            <StackPanel x:Name="stackPnlSideBar" Width="200" Orientation="Vertical" Margin="0,10,0,0" Background="White">
+                <Button Content="Home" Height="50" Background="Transparent" />
+                <Button Content="Upload" Height="50" Background="Transparent" />
+                <Button Content="Data" Height="50" Background="Transparent"/>
+                <Button Content="Logout" Height="50" Background="Transparent" />
+            </StackPanel>
+        </Border>
+        <StackPanel Margin="38,20,41,20" Grid.Column="1">
             <TextBlock Text="Select Excel File:" FontWeight="Bold"/>
             <TextBox Text="{Binding FilePath}" IsReadOnly="True" Width="350" />
-            <Button Name="btn_browse" Content="Browse" Command="{Binding SelectFileCommand}" Width="100" Click="Button_Click_1" />
+            <Button Name="btn_browse" Content="Browse" Command="{Binding SelectFileCommand}" Width="100"  />
 
-            <Button Name="btn_upload_data" Content="Upload Data" Command="{Binding UploadCommand}" Margin="10" Click="btn_upload_data_Click" />
+            <Button Name="btn_upload_data" Content="Upload Data" Command="{Binding UploadCommand}" Margin="10"  IsEnabled="{Binding Path=FilePath, Converter={StaticResource NullOrEmptyConverter}}"  />
 
             <ListBox ItemsSource="{Binding Records}" Height="150">
                 <ListBox.ItemTemplate>
@@ -25,6 +57,42 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+            
+                    <ColumnDefinition Width="200*"/>
+                
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="0,10" Grid.Column="0" >
+                    <CheckBox Content="Test1">
+                        </CheckBox>
+                    <CheckBox Content="Test2">
+                    </CheckBox>
+                    <CheckBox Content="Test3">
+
+                    </CheckBox>
+                    <CheckBox Content="Test4">
+                    </CheckBox>
+                </StackPanel>
+                
+                <StackPanel Margin="0,10" Grid.Column="1">
+                   <CheckBox Content="Test1">
+                       </CheckBox>
+                   <CheckBox Content="Test2">
+                   </CheckBox>
+                   <CheckBox Content="Test3">
+
+                   </CheckBox>
+                   <CheckBox Content="Test4">
+                   </CheckBox>
+                </StackPanel>
+
+
+            </Grid>  
         </StackPanel>
+
+
     </Grid>
 </Window>

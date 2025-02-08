@@ -1,27 +1,21 @@
-﻿using System.Windows;
+﻿using StPeterCollectors.ViewModels;
+using System.Windows;
 using static System.Net.Mime.MediaTypeNames;
+
 
 namespace StPeterCollectors
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
+        public UploadDataViewModel ViewModel { get; }
+
         public MainWindow()
         {
             InitializeComponent();
+            ViewModel = new UploadDataViewModel();
+            DataContext = ViewModel; // ✅ Set DataContext
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            Console.WriteLine("Test");
-        }
-
-        private void btn_upload_data_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
