@@ -13,7 +13,6 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontSize" Value="16"/>
-
         </Style>
 
         <Style TargetType="CheckBox">
@@ -32,14 +31,27 @@
             <ColumnDefinition Width="53*"/>
             <!-- Main Content -->
         </Grid.ColumnDefinitions>
-        <Border BorderBrush="#FFB1ABAB" BorderThickness="0,0,2,0">
-            <StackPanel x:Name="stackPnlSideBar" Width="200" Orientation="Vertical" Margin="0,10,0,0" Background="White">
-                <Button Content="Home" Height="50" Background="Transparent" />
-                <Button Content="Upload" Height="50" Background="Transparent" />
-                <Button Content="Data" Height="50" Background="Transparent"/>
-                <Button Content="Logout" Height="50" Background="Transparent" />
-            </StackPanel>
+        <Border BorderBrush="LightGray" BorderThickness="0,0,1,0">
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+                <StackPanel x:Name="stackPnlSideBar1" Width="200" Margin="0,10,0,0" Background="White" Grid.Row="0">
+                    <Image Source="C:\Users\HIER\source\repos\StPeterCollectors\StPeterCollectors\stPeterLogo.png" Width="180" Height="100"/>
+                </StackPanel>
+
+                <StackPanel x:Name="stackPnlSideBar2" Width="200" Margin="0,10,0,0" Background="White" Grid.Row="1">
+                    <Button Content="Home" Height="50" Background="Transparent" />
+                    <Button Content="Upload" Height="50" Background="Transparent" />
+                    <Button Content="Data" Height="50" Background="Transparent"/>
+                    <Button Content="Logout" Height="50" Background="Transparent" />
+                </StackPanel>
+           
+        </Grid>
         </Border>
+
         <StackPanel Margin="38,20,41,20" Grid.Column="1">
             <TextBlock Text="Select Excel File:" FontWeight="Bold"/>
             <TextBox Text="{Binding FilePath}" IsReadOnly="True" Width="350" />
@@ -60,33 +72,22 @@
 
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-            
-                    <ColumnDefinition Width="200*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 
                 </Grid.ColumnDefinitions>
                 <StackPanel Margin="0,10" Grid.Column="0" >
-                    <CheckBox Content="Test1">
-                        </CheckBox>
-                    <CheckBox Content="Test2">
-                    </CheckBox>
-                    <CheckBox Content="Test3">
-
-                    </CheckBox>
-                    <CheckBox Content="Test4">
-                    </CheckBox>
+                    <CheckBox Content="Test1"/>
+                    <CheckBox Content="Test2"/>
+                    <CheckBox Content="Test3"/>
+                    <CheckBox Content="Test4"/>
                 </StackPanel>
-                
+              
                 <StackPanel Margin="0,10" Grid.Column="1">
-                   <CheckBox Content="Test1">
-                       </CheckBox>
-                   <CheckBox Content="Test2">
-                   </CheckBox>
-                   <CheckBox Content="Test3">
-
-                   </CheckBox>
-                   <CheckBox Content="Test4">
-                   </CheckBox>
+                    <CheckBox Content="Test1"/>
+                    <CheckBox Content="Test2"/>
+                    <CheckBox Content="Test3"/>
+                    <CheckBox Content="Test4"/>
                 </StackPanel>
 
 
